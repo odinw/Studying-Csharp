@@ -6,7 +6,35 @@ namespace Studying_Csharp
     {
         static void Main(string[] args)
         {
-            Enum_IsDefine();
+            //Enum_IsDefine();
+            SpecialForLoop();
+        }
+
+        static void SpecialForLoop()
+        {
+            // always false
+            for (int i = 0; i < 0; i++)
+                Console.WriteLine(i);
+
+            for (int i = 0; false; i++)
+                Console.WriteLine(i);
+
+            int index = 0;
+
+            // early define index
+            for (index = 0; index < 0; index++)
+                Console.WriteLine(index);
+
+            // early define index & no default index
+            for (; index < 0; index++)
+                Console.WriteLine(index);
+
+            // early define index & no default index & no default iteration 
+            for (; index < 0;)
+                Console.WriteLine(index);
+            
+            // it can work, but it is infinite loop 
+            // for (;;) Console.WriteLine(index);
         }
 
         static void Enum_IsDefine()
