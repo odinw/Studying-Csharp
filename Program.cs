@@ -12,6 +12,9 @@ namespace Studying_Csharp
 
         static void SpecialForLoop()
         {
+            for (int i = 0, j = 1, k = 2; i < 1; i++)
+                Console.WriteLine($"muilt-value: {i}, {j}, {k}");
+
             // always false
             for (int i = 0; i < 0; i++)
                 Console.WriteLine(i);
