@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Studying_Csharp
 {
@@ -7,13 +8,33 @@ namespace Studying_Csharp
         static void Main(string[] args)
         {
             //Enum_IsDefine();
-            SpecialForLoop();
+            //ForLoop_Special();
+            List_Remove();
         }
 
-        static void SpecialForLoop()
+        // List.Remove() & List.RemoveAt(), it will be change data structure
+        static void List_Remove()
+        {
+            var list = new List<int> { 1, 3, 5, 7, 9};
+            for (int i = 0; i < list.Count; i++)
+                Console.WriteLine($"before {i} : {list[i]}");
+
+            list.Remove(5);
+
+            for (int i = 0; i < list.Count; i++)
+                Console.WriteLine($"Remove(5) {i} : {list[i]}");
+
+            list.RemoveAt(2);
+
+            for (int i = 0; i < list.Count; i++)
+                Console.WriteLine($"RemoveAt(2) {i} : {list[i]}");
+
+        }
+
+        static void ForLoop_Special()
         {
             for (int i = 0, j = 1, k = 2; i < 1; i++)
-                Console.WriteLine($"muilt-value: {i}, {j}, {k}");
+                Console.WriteLine($"multivariable: {i}, {j}, {k}");
 
             // always false
             for (int i = 0; i < 0; i++)
