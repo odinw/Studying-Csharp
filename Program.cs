@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Studying_Csharp
@@ -9,7 +10,28 @@ namespace Studying_Csharp
         {
             //Enum_IsDefine();
             //ForLoop_Special();
-            List_Remove();
+            //List_Remove();
+            List_DeepClone();
+        }
+
+        static void List_DeepClone()
+        {
+            var original = new List<int> { 1, 3, 5 };
+            var copy = original.Select(m => m).ToList();
+
+            Console.WriteLine("init:");
+            original.ForEach(m => Console.WriteLine($"original {m}"));
+            copy.ForEach(m => Console.WriteLine($"copy {m}"));
+
+            Console.WriteLine("original.Remove(3):");
+            original.Remove(3);
+            original.ForEach(m => Console.WriteLine($"original {m}"));
+            copy.ForEach(m => Console.WriteLine($"copy {m}"));
+
+            Console.WriteLine("copy.Add(7);:");
+            copy.Add(7);
+            original.ForEach(m => Console.WriteLine($"original {m}"));
+            copy.ForEach(m => Console.WriteLine($"copy {m}"));
         }
 
         // List.Remove() & List.RemoveAt(), it will be change data structure
@@ -28,7 +50,6 @@ namespace Studying_Csharp
 
             for (int i = 0; i < list.Count; i++)
                 Console.WriteLine($"RemoveAt(2) {i} : {list[i]}");
-
         }
 
         static void ForLoop_Special()
