@@ -19,8 +19,87 @@ namespace Studying_Csharp
             //StringParsing();
             //DictionaryTryRemove();
             //ChangeMoney();
+            //MathPow();
 
-            MathPow();
+            string a = null;
+            Console.WriteLine(a == "a"); // false
+            Console.WriteLine(a == "null"); // false
+            Console.WriteLine(a == null); // true
+
+            //// System.NullReferenceException: 'Object reference not set to an instance of an object.'
+            //NoIntance noIntance = null;
+            //noIntance.GetException();
+            //// no data, no exception
+            //var data = new List<int> { 1, 2, 3, 4, 5 };
+            //var dataWhere = data.Where(x => x.Equals(6));
+            //var dataList = dataWhere.ToList();
+            //// System.ArgumentNullException: 'Value cannot be null. '
+            //List<int> dataNull = null;
+            //dataNull.ToList();
+
+            // 對時區符號做處理
+            //string dbTime = "+08:00";
+            //var a = dbTime.Replace("+", "");
+            //var timeSpan = TimeSpan.Parse(a);
+            ////.ToString("+#;-#;0");
+            //Console.WriteLine(timeSpan);
+
+            // 不同時區比較 已測是可以的 , maybe 背後都會轉成 UTC+0 來比
+            //var now = DateTimeOffset.Parse("2022-01-11 10:00:00+08:00");
+            //var limit = DateTimeOffset.Parse("2022-01-11 02:00:00+00:00");
+            //if (now.Equals(limit))
+            //    Console.WriteLine("now = limit");
+            //if (now > limit)
+            //    Console.WriteLine("now > limit");
+            //if (now < limit)
+            //    Console.WriteLine("now < limit");
+
+            // 時區解析
+            //Console.WriteLine(DateTimeOffset.UtcNow.Offset);
+            //Console.WriteLine(DateTimeOffset.Now.Offset);
+            //var dto_TimeZone_By_int = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567"); // ok 不指定時區，就用預設時區
+            //var dto = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567+08:00");//ok 指定時區
+            //var dto = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567+-08:00"); // exception
+            //var dto_timeZone_by_int = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567+7"); // ok 指定時區
+            //var dto_timeZone_by_int = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567Z7"); // exception
+            //var dto_timeZone_by_int = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567Z08:00");// exception
+            //var dto_timeZone_by_int = DateTimeOffset.Parse("2020-2-20 19:11:22.1234567Z08:00:00");// exception
+            //Console.WriteLine(dto_timeZone_by_int);
+            //Console.WriteLine(dto_timeZone_by_int.Offset);
+
+            //var timeSpan = TimeSpan.Parse("-08:00:00");
+            //var timeSpanHour = timeSpan.Hours;
+            //var datetime_operation_with_timeSpan = db_DayStartTime + timeSpan;
+
+            //// front-end parameters
+            //var timeSpan = TimeSpan.Parse("-08:00");
+            //var timeSpanHour = TimeSpan.Parse("08:00").Hours;
+            ////var timeSpanHour_format = timeSpan.ToString("0:zz"); // excpetion
+            //var timeSpanHour_format = timeSpanHour.ToString("+#;-#;0"); 
+            //var db_DayStartTime = DateTime.Parse("2022-01-10 14:00:00");
+            //var check = $"{db_DayStartTime}{timeSpanHour}";
+            //var timeSpanHour_to_symbal = Math.Sign(timeSpanHour);
+            //var dto_timeZone_by_timeSpan = DateTimeOffset.Parse($"{db_DayStartTime}{timeSpanHour_format}"); //exception: DateTimeOffset.Parse($"{DateTime}{TimeSpan}")
+            ////var dto_timeZone_by_timeSpan = DateTimeOffset.Parse(datetime_operation_with_timeSpan.ToString());
+
+            //// 簡寫 : 需驗證 時區範圍 12 到 -13
+            //var 簡寫 = DateTimeOffset.Parse($"{db_DayStartTime}{TimeSpan.Parse("-13:00").Hours.ToString("+#;-#;0")}");
+            //var 驗證UTC_0 = 簡寫.ToUniversalTime();
+
+            //var aa = TimeSpan.Zero;
+            //Console.WriteLine(TimeSpan.Zero);
+
+
+            //check_timeSpan_default();
+        }
+
+        class NoIntance
+        {
+            public void GetException() { }
+        }
+        static void check_timeSpan_default(TimeSpan timeSpan = default)
+        {
+            Console.WriteLine(timeSpan);
         }
 
         static void List_DeepClone()
