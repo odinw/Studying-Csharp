@@ -20,7 +20,9 @@ namespace Studying_Csharp
             //DictionaryTryRemove();
             //ChangeMoney();
 
-            MathPow();
+            //MathPow();
+
+            new TryArrray().Show();
         }
 
         static void List_DeepClone()
